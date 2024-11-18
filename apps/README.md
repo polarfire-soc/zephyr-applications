@@ -6,11 +6,8 @@ The `blinky` application is a very basic example designed to familarize the user
 with the concepts of Zephyr such as using a peripherals API, and compiling applications using `Devicetree overlays`.
 
 The application blink's an LED forever using the GPIO API.
-The application comes with multiple Devicetree overlay files, located in the `boards/` directory.
-The `mpfs_icicle.overlay` file is chosen by default.
-This overlay disables the `e51` hart, configures the console on `uart 1` and chooses a memory region in DDR to execute from.
 
-The application also comes with an extra Devicetree overlay file, `mpfs_icicle_scratchpad.overlay`, which will compile the application to execute from DDR. To compile an application using the above overlay:
+The application also comes with an extra Devicetree overlay file, `mpfs_icicle_scratchpad.overlay`, located in the `boards/` directory which will compile the application to execute from Scratchpad. To compile an application using the above overlay:
 
 ```bash
 west build -p -b mpfs_icicle polarfire-soc/apps/blinky -- -DDTC_OVERLAY_FILE=boards/mpfs_icicle_scratchpad.overlay
